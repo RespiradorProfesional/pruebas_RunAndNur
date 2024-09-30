@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://35qor70vvi01"]
+
+[ext_resource type="PackedScene" uid="uid://bi5xsrxsyvk7u" path="res://scenes/characters/base_player.tscn" id="1_spy8h"]
+[ext_resource type="PackedScene" uid="uid://c2c4lxxgq54l2" path="res://scenes/characters/punch.tscn" id="2_fyrlh"]
+
+[node name="CharacterBody2D" instance=ExtResource("1_spy8h")]
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(0, 0)
+
+[node name="Node2D" parent="." index="3" instance=ExtResource("2_fyrlh")]

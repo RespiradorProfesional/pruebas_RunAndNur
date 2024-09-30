@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://daj3cu7uwtdxk"]
+
+[ext_resource type="Script" path="res://scripts/characters/rocket_proyectile.gd" id="1_4obef"]
+[ext_resource type="Texture2D" uid="uid://d3qee5ixaokt" path="res://icon.svg" id="1_06hop"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mebkr"]
+radius = 44.0
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_4obef")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+scale = Vector2(0.351562, 0.351562)
+texture = ExtResource("1_06hop")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mebkr")
