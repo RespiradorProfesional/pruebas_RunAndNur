@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dmd27dx1la02u"]
 
-[ext_resource type="PackedScene" uid="uid://35qor70vvi01" path="res://scenes/characters/Rocket.tscn" id="1_uualc"]
+[ext_resource type="PackedScene" uid="uid://566upoeih0am" path="res://scenes/characters/Rhot/Rhot.tscn" id="1_p4elm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ibaji"]
 size = Vector2(691, 80)
@@ -13,5 +13,4 @@ size = Vector2(691, 80)
 position = Vector2(358, 524)
 shape = SubResource("RectangleShape2D_ibaji")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_uualc")]
-position = Vector2(295, 390)
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_p4elm")]

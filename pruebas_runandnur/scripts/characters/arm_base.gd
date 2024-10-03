@@ -1,8 +1,14 @@
 extends Node2D
 
-var projectile_scene=preload("res://scripts/characters/rocket_proyectile.gd")
+@export var projectile_rute : String
 # Velocidad del proyectil
+@onready var sprite_arm=$Sprite2D
 @export var projectile_speed: float = 500.0
+
+var body_arm
+
+func _ready() -> void:
+	body_arm=get_parent()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -25,16 +31,17 @@ func _process(delta):
 # Función para disparar un proyectil
 func shoot():
 	# Instancia el proyectil
+	var projectile_scene= load(projectile_rute)
 	var projectile = projectile_scene.instantiate()
 	
 	# Establece la posición del proyectil en el centro del sprite que dispara
-	projectile.global_position = global_position
+	projectile.global_position = sprite_arm.global_position
 	
 	# Calcula la dirección basado en la rotación del nodo
 	var direction = Vector2.RIGHT.rotated(rotation)
 	
 	# Asigna la velocidad al proyectil (asumiendo que tiene una variable velocity)
 	projectile.velocity = direction * projectile_speed
-	
+	projectile.body_arm=body_arm
 	# Añade el proyectil al árbol de la escena
 	get_tree().root.add_child(projectile)

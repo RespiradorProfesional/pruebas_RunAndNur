@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxv3owlxsmsdk"]
+
+[ext_resource type="Script" path="res://scripts/characters/Rhot/rhot_shoot.gd" id="1_rnfdb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q0lqr"]
+radius = 31.257
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_rnfdb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_q0lqr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
