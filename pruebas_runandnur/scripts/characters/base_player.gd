@@ -4,7 +4,10 @@ class_name Player
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var in_impulse = false
+var ability_available=true
 
+
+#OJO SI MODIFICO ESTO QUE EN EMI TAMBIEN SE MODIFICO
 func _physics_process(delta: float) -> void:
 	# Añadir gravedad.
 	if not is_on_floor():
@@ -13,10 +16,14 @@ func _physics_process(delta: float) -> void:
 	# Manejar salto.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-
+	
+	if Input.is_action_just_pressed("Ability") and ability_available:
+		ability_pressed()
+		ability_available=false
+	
 	# Obtener la dirección de entrada para el movimiento.
 	var direction := Input.get_axis("ui_left", "ui_right")
-
+	
 	if not in_impulse:
 		# Movimiento normal cuando no está bajo impulso.
 		if direction != 0:
@@ -43,3 +50,8 @@ func _physics_process(delta: float) -> void:
 func apply_central_impulse(impulse: Vector2):
 	in_impulse = true
 	velocity += impulse  # Sumar el impulso a la velocidad actual.
+
+#Funciones para sustituir
+
+func ability_pressed():
+	pass

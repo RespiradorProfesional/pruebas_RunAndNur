@@ -10,3 +10,7 @@ script = ExtResource("1_6m46u")
 position = Vector2(58, 0)
 scale = Vector2(0.382812, 0.382812)
 texture = ExtResource("2_gdk22")
+
+[node name="Timer_shoot" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer_shoot" to="." method="_on_timer_timeout"]

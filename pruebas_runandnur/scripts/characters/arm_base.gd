@@ -4,7 +4,8 @@ extends Node2D
 # Velocidad del proyectil
 @onready var sprite_arm=$Sprite2D
 @export var projectile_speed: float = 500.0
-
+@onready var timer_shoot= $Timer_shoot
+var shoot_active=true
 var body_arm
 
 func _ready() -> void:
@@ -25,15 +26,18 @@ func _process(delta):
 	rotation = angle
 	
 	# Verifica si se presiona el botón de disparo (ej: clic izquierdo)
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_just_pressed("shoot") and shoot_active:
 		shoot()
+		timer_shoot.start()
+		shoot_active=false
 
 # Función para disparar un proyectil
 func shoot():
 	# Instancia el proyectil
 	var projectile_scene= load(projectile_rute)
 	var projectile = projectile_scene.instantiate()
-	
+	if projectile is rhot_shoot:
+		projectile.arm_body=get_parent()
 	# Establece la posición del proyectil en el centro del sprite que dispara
 	projectile.global_position = sprite_arm.global_position
 	
@@ -42,6 +46,8 @@ func shoot():
 	
 	# Asigna la velocidad al proyectil (asumiendo que tiene una variable velocity)
 	projectile.velocity = direction * projectile_speed
-	projectile.body_arm=body_arm
 	# Añade el proyectil al árbol de la escena
 	get_tree().root.add_child(projectile)
+
+func _on_timer_timeout() -> void:
+	shoot_active=true

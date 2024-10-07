@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://coarxsb5urduk"]
+
+[ext_resource type="PackedScene" uid="uid://bi5xsrxsyvk7u" path="res://scenes/characters/base_player.tscn" id="1_4dv8e"]
+[ext_resource type="Script" path="res://scripts/characters/Emi/emi.gd" id="2_5cif8"]
+[ext_resource type="PackedScene" uid="uid://bu6ex44o5qlfk" path="res://scenes/characters/ability_visual_cooldown.tscn" id="3_qx3x1"]
+
+[node name="CharacterBody2D" instance=ExtResource("1_4dv8e")]
+script = ExtResource("2_5cif8")
+
+[node name="Ability_cooldown_ui" parent="." index="3" instance=ExtResource("3_qx3x1")]
+position = Vector2(484, 248)
+ability_cooldown_var = 1
+
+[node name="ability_duration" type="Timer" parent="." index="4"]
+wait_time = 2.0
+one_shot = true
+
+[node name="ability_cooldown" type="Timer" parent="." index="5"]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="ability_duration" to="." method="_on_ability_duration_timeout"]
+[connection signal="timeout" from="ability_cooldown" to="." method="_on_ability_cooldown_timeout"]

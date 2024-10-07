@@ -8,5 +8,5 @@
 [node name="Sprite2D" parent="." index="1"]
 position = Vector2(0, 0)
 
-[node name="Node2D" parent="." index="3" instance=ExtResource("2_fyrlh")]
+[node name="Node2D2" parent="." index="3" instance=ExtResource("2_fyrlh")]
 projectile_rute = "res://scenes/characters/Rocket/rocket_proyectile.tscn"

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu6ex44o5qlfk"]
+
+[ext_resource type="Texture2D" uid="uid://d3qee5ixaokt" path="res://icon.svg" id="1_1buf2"]
+[ext_resource type="Script" path="res://scripts/characters/ability_visual_cooldown.gd" id="1_s73y2"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_s73y2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1buf2")
+
+[node name="update_second" type="Timer" parent="."]
+
+[node name="ability_cooldown" type="Timer" parent="."]
+
+[connection signal="timeout" from="update_second" to="." method="_on_update_second_timeout"]
+[connection signal="timeout" from="ability_cooldown" to="." method="_on_ability_cooldown_timeout"]

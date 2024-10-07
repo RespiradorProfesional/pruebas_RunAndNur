@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dmd27dx1la02u"]
 
-[ext_resource type="PackedScene" uid="uid://566upoeih0am" path="res://scenes/characters/Rhot/Rhot.tscn" id="1_p4elm"]
+[ext_resource type="PackedScene" uid="uid://coarxsb5urduk" path="res://scenes/characters/Emi/Emi.tscn" id="1_3voph"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ibaji"]
 size = Vector2(691, 80)
@@ -13,4 +13,12 @@ size = Vector2(691, 80)
 position = Vector2(358, 524)
 shape = SubResource("RectangleShape2D_ibaji")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_p4elm")]
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(323, -118)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(358, 524)
+shape = SubResource("RectangleShape2D_ibaji")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_3voph")]

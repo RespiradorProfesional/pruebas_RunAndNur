@@ -1,8 +1,9 @@
 extends Area2D
+class_name rhot_shoot
 
 # Velocidad del proyectil
 var velocity: Vector2 = Vector2.ZERO
-var body_arm
+var arm_body
 
 func _process(delta):
 	# Actualiza la posición del proyectil según su velocidad
@@ -12,4 +13,4 @@ func _process(delta):
 
 
 func _on_body_entered(body: Node2D) -> void:
-	body_arm.global_position=global_position
+	arm_body.global_position=global_position
